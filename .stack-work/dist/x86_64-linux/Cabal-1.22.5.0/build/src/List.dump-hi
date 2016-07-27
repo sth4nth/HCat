@@ -1,0 +1,159 @@
+
+==================== FINAL INTERFACE ====================
+2016-07-15 03:15:50.04516 UTC
+
+interface HCat_Iq2DAKyrbvk3ZKEqDv7U6O:List [orphan module] 7103
+  interface hash: a0b71ec598fdc7173f714f9877f7c6a8
+  ABI hash: 6808558079a3cca85b4afaf5c75af5a2
+  export-list hash: 7b58995345685fe2954bd8828038da7e
+  orphan hash: fcd4d07ab6950db155e80933ecd353b0
+  flag hash: 962af636f8e927040c7daa9c21457292
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+module dependencies: Category
+package dependencies: base-4.8.2.0* ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:GHC.Generics
+import  -/  Category d04fadc7369dd940e4360945d36cdfed
+  exports: 81374d22835f40785af1b606622eb5f1
+  Applicatives c5a9990fdc5f7d66c3d1870a791424e7
+  Functors 0c99107d0b164aa3ab215e2e9d84eaab
+  Monads 85dcc97e6230fce5f7ba3f8ac5666970
+  Monoids 78c00219dd189b6034ab42aed4f3eb64
+  Semigroups 3dc1f6eefa8d24cdc0d8ab6c8106e43a
+  append 726eb8d456c74b87ebc1fd5ba803d7e7
+  bind 26232894ba5c27845dc414b23b94ae56
+  deploy 47a21a94494a3612505094fbdc8bb840
+  empty 2a9b254d77ca52aa2892f66cf10fa8d7
+  join 7aa51fc5e18af370596166649fa41894
+  lift f49e3ca94f9a5b39fbdda534365cd879
+  unit 1d2fafe2f03031bfdd664393f1f14b95
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+573587fd220a4dafbad0e761f51315c8
+  $fApplicatives[] :: Category.Applicatives []
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ []
+                  GHC.Base.map `cast` (Sym (Category.NTCo:Functors[0] <[]>_N))
+                  List.$fApplicatives[]_$cunit
+                  List.$fApplicatives[]_$cdeploy -}
+b42aa7b14b686c1873e9aadbb220325b
+  $fApplicatives[]_$cdeploy :: [a -> b] -> [a] -> [b]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ @ a @ b fs :: [a -> b] xs :: [a] ->
+                 letrec {
+                   go :: [a -> b] -> [b] {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [a -> b] ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ b
+                       : y ys
+                       -> let {
+                            z :: [b] = go ys
+                          } in
+                          letrec {
+                            go1 :: [a] -> [b] {- Arity: 1, Strictness: <S,1*U> -}
+                            = \ ds1 :: [a] ->
+                              case ds1 of wild1 {
+                                [] -> z : y1 ys1 -> GHC.Types.: @ b (y y1) (go1 ys1) }
+                          } in
+                          go1 xs }
+                 } in
+                 go fs) -}
+12f953ee1574971ca61e3ef569dc6c08
+  $fApplicatives[]_$cunit :: a -> [a]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m2,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a x :: a -> GHC.Types.: @ a x (GHC.Types.[] @ a)) -}
+aed424293d7ec61cb98f8e68f65c44fa
+  $fFunctors[] :: Category.Functors []
+  DFunId[0]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                GHC.Base.map `cast` (Sym (Category.NTCo:Functors[0] <[]>_N)) -}
+c3cc157abe42ca5b022e3bd9bc86c974
+  $fMonads[] :: Category.Monads []
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ []
+                  List.$fApplicatives[]
+                  List.$fMonads[]_$cjoin
+                  List.$fMonads[]_$cbind -}
+410dcc2bdea66f623b2e7c56be99e01a
+  $fMonads[]_$cbind :: [a] -> (a -> [b]) -> [b]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,C(U)>,
+     Unfolding: (\ @ a @ b xs :: [a] k :: a -> [b] ->
+                 letrec {
+                   go :: [a] -> [b] {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [a] ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ b : y ys -> GHC.Base.++ @ b (k y) (go ys) }
+                 } in
+                 go xs) -}
+b7710956f49f43061c886099ee87268f
+  $fMonads[]_$cjoin :: [[a]] -> [a]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True) List.$fMonads[]_$sconcat -}
+d9cd01b032469733a2f818f02b0006e8
+  $fMonads[]_$sconcat :: [[a3]] -> [a3]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Inline: INLINE (sat-args=1),
+     Unfolding: InlineRule (1, False, False)
+                (\ @ a3 xs :: [[a3]] ->
+                 GHC.Base.build
+                   @ a3
+                   (\ @ b c :: a3 -> b -> b[OneShot] n :: b[OneShot] ->
+                    GHC.Base.foldr
+                      @ [a3]
+                      @ b
+                      (\ x :: [a3] y :: b[OneShot] -> GHC.Base.foldr @ a3 @ b c y x)
+                      n
+                      xs)) -}
+f08abe85be17aadd1acaafb9f419b488
+  $fMonoids[] :: Category.Semigroups [a] => Category.Monoids [a]
+  DFunId[1]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a $dSemigroups :: Category.Semigroups [a].
+                  @ [a] $dSemigroups (List.$fMonoids[]_$cempty @ a $dSemigroups) -}
+e854aaca1b4f01da56c78a53096e4995
+  $fMonoids[]_$cempty :: Category.Semigroups [a] => [a]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ a $dSemigroups :: Category.Semigroups [a] ->
+                 GHC.Types.[] @ a) -}
+ac43c02a7b7324d63bcb0e2028786650
+  $fSemigroups[] :: Category.Semigroups [a]
+  DFunId[0]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                GHC.Base.++
+                  `cast`
+                (forall a. Sym (Category.NTCo:Semigroups[0] <[a]>_N)) -}
+instance Category.Applicatives [[]] = List.$fApplicatives[]
+instance Category.Functors [[]] = List.$fFunctors[]
+instance Category.Monads [[]] = List.$fMonads[]
+instance Category.Monoids [[]] = List.$fMonoids[]
+instance Category.Semigroups [[]] = List.$fSemigroups[]
+"SPEC/List concat @ [] _" [ALWAYS] forall @ a3
+                                          $dFoldable :: Data.Foldable.Foldable []
+  Data.Foldable.concat @ [] @ a3 $dFoldable
+  = List.$fMonads[]_$sconcat @ a3
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

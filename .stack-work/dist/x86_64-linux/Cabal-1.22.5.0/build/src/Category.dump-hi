@@ -1,0 +1,1740 @@
+
+==================== FINAL INTERFACE ====================
+2016-07-15 07:46:29.723292 UTC
+
+interface HCat_Iq2DAKyrbvk3ZKEqDv7U6O:Category 7103
+  interface hash: c49a0db3aaf3b5d0b1bdb0196a6c0f0d
+  ABI hash: d14e293859cc3a2924ecb5cbcf2010fb
+  export-list hash: 978136d81e8a679ce7d20ba3725647bd
+  orphan hash: 3fe7eca5e54ea9528c2e15853d2a1a81
+  flag hash: 962af636f8e927040c7daa9c21457292
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Category.Applicatives{Category.deploy Category.unit}
+  Category.Cont{Category.Cont Category.runCont}
+  Category.Functors{Category.lift}
+  Category.Monads{Category.bind Category.join}
+  Category.Monoids{Category.empty}
+  Category.Option{Category.None Category.Some}
+  Category.Reader{Category.Reader Category.runReader}
+  Category.Semigroups{Category.append}
+  Category.State{Category.State Category.runState}
+  Category.Writer{Category.Writer}
+  Category.ZipList{Category.ZipList}
+module dependencies:
+package dependencies: base-4.8.2.0* ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:GHC.Generics
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+e6643a4f912e2a59e2f334981f5b603a
+  $fApplicativesCont ::
+    Category.Functors (Category.Cont r) =>
+    Category.Applicatives (Category.Cont r)
+  DFunId[1]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ r
+                      $dFunctors :: Category.Functors (Category.Cont r).
+                  @ (Category.Cont r)
+                  $dFunctors
+                  (Category.$fApplicativesCont_$cunit @ r $dFunctors)
+                  (Category.$fApplicativesCont_$cdeploy @ r $dFunctors) -}
+804a8b9e68fb3632d33862ea1cdd6e07
+  $fApplicativesCont1 ::
+    Category.Functors (Category.Cont r) =>
+    forall a b.
+    Category.Cont r (a -> b) -> Category.Cont r a -> (b -> r) -> r
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,C(U)><C(S),1*C1(U)><L,C(U)>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ r
+                   $dFunctors :: Category.Functors (Category.Cont r)
+                   @ a
+                   @ b
+                   mf :: Category.Cont r (a -> b)
+                   ma :: Category.Cont r a
+                   x :: b -> r ->
+                 ma `cast` (Category.NTCo:Cont[0] <r>_R <a>_R)
+                   (\ a1 :: a ->
+                    mf `cast` (Category.NTCo:Cont[0] <r>_R <a -> b>_R)
+                      (\ x1 :: a -> b -> x (x1 a1)))) -}
+2e83d0c70458efd9e5cbe1089c93524a
+  $fApplicativesCont2 ::
+    Category.Functors (Category.Cont r) => forall a. a -> (a -> r) -> r
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><C(S),1*C1(U)>,
+     Unfolding: InlineRule (3, True, True)
+                (\ @ r
+                   $dFunctors :: Category.Functors (Category.Cont r)
+                   @ a
+                   a1 :: a
+                   ds :: a -> r ->
+                 ds a1) -}
+daae9f97033201e0b83e4adaedea84d9
+  $fApplicativesCont_$cdeploy ::
+    Category.Functors (Category.Cont r) =>
+    forall a b.
+    Category.Cont r (a -> b) -> Category.Cont r a -> Category.Cont r b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,C(U)><C(S),1*C1(U)><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fApplicativesCont1
+                  `cast`
+                (forall r.
+                 <Category.Functors (Category.Cont r)>_R
+                 ->_R forall a b.
+                      <Category.Cont r (a -> b)>_R
+                      ->_R <Category.Cont r a>_R
+                      ->_R Sym (Category.NTCo:Cont[0] <r>_R <b>_R)) -}
+55cfae0beef5f94194ec28249b75bb12
+  $fApplicativesCont_$cunit ::
+    Category.Functors (Category.Cont r) =>
+    forall a. a -> Category.Cont r a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><C(S),1*C1(U)>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fApplicativesCont2
+                  `cast`
+                (forall r.
+                 <Category.Functors (Category.Cont r)>_R
+                 ->_R forall a.
+                      <a>_R ->_R Sym (Category.NTCo:Cont[0] <r>_R <a>_R)) -}
+e6643a4f912e2a59e2f334981f5b603a
+  $fApplicativesOption :: Category.Applicatives Category.Option
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Category.Option
+                  Category.$fApplicativesOption_$clift
+                    `cast`
+                  (Sym (Category.NTCo:Functors[0] <Category.Option>_N))
+                  Category.Some
+                  Category.$fApplicativesOption_$cdeploy -}
+1e0758405175e61232665c9c831ecc43
+  $fApplicativesOption_$cdeploy ::
+    Category.Option (a -> b) -> Category.Option a -> Category.Option b
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   @ b
+                   ds :: Category.Option (a -> b)
+                   ds1 :: Category.Option a ->
+                 case ds of wild {
+                   Category.None -> Category.None @ b
+                   Category.Some f
+                   -> Category.$fApplicativesOption_$clift @ a @ b f ds1 }) -}
+0989e820dbe3cffe6277c94ce667bbcd
+  $fApplicativesOption_$clift ::
+    (a -> b) -> Category.Option a -> Category.Option b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b ds :: a -> b ds1 :: Category.Option a ->
+                 case ds1 of wild {
+                   Category.None -> Category.None @ b
+                   Category.Some a1 -> Category.Some @ b (ds a1) }) -}
+e6643a4f912e2a59e2f334981f5b603a
+  $fApplicativesReader ::
+    Category.Functors (Category.Reader e) =>
+    Category.Applicatives (Category.Reader e)
+  DFunId[1]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ e
+                      $dFunctors :: Category.Functors (Category.Reader e).
+                  @ (Category.Reader e)
+                  $dFunctors
+                  (Category.$fApplicativesReader_$cunit @ e $dFunctors)
+                  (Category.$fApplicativesReader_$cdeploy @ e $dFunctors) -}
+e464a277e5206f5501f136ac808f16d1
+  $fApplicativesReader1 ::
+    Category.Functors (Category.Reader e) =>
+    forall a b.
+    Category.Reader e (a -> b) -> Category.Reader e a -> e -> b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><C(C(S)),1*C1(C1(U))><L,1*C1(U)><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ e
+                   $dFunctors :: Category.Functors (Category.Reader e)
+                   @ a
+                   @ b
+                   mf :: Category.Reader e (a -> b)
+                   ma :: Category.Reader e a
+                   e1 :: e ->
+                 mf `cast` (Category.NTCo:Reader[0] <e>_N <a -> b>_N)
+                   e1
+                   (ma `cast` (Category.NTCo:Reader[0] <e>_N <a>_N) e1)) -}
+0c0e2c1df4060d6f9c7bb7ccae254283
+  $fApplicativesReader2 ::
+    Category.Functors (Category.Reader e) => forall a. a -> e -> a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><S,1*U><L,A>,
+     Unfolding: InlineRule (3, True, True)
+                (\ @ e
+                   $dFunctors :: Category.Functors (Category.Reader e)
+                   @ a
+                   a1 :: a
+                   ds :: e ->
+                 a1) -}
+ff8cb8b39e06b1459ee5f15cff348482
+  $fApplicativesReader_$cdeploy ::
+    Category.Functors (Category.Reader e) =>
+    forall a b.
+    Category.Reader e (a -> b)
+    -> Category.Reader e a -> Category.Reader e b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><C(C(S)),1*C1(C1(U))><L,1*C1(U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fApplicativesReader1
+                  `cast`
+                (forall e.
+                 <Category.Functors (Category.Reader e)>_R
+                 ->_R forall a b.
+                      <Category.Reader e (a -> b)>_R
+                      ->_R <Category.Reader e a>_R
+                      ->_R Sym (Category.NTCo:Reader[0]) <e>_N <b>_N) -}
+da2d8f9779ec1a832cb0a93fffee4bd1
+  $fApplicativesReader_$cunit ::
+    Category.Functors (Category.Reader e) =>
+    forall a. a -> Category.Reader e a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><S,1*U><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fApplicativesReader2
+                  `cast`
+                (forall e.
+                 <Category.Functors (Category.Reader e)>_R
+                 ->_R forall a.
+                      <a>_R ->_R Sym (Category.NTCo:Reader[0]) <e>_N <a>_N) -}
+e6643a4f912e2a59e2f334981f5b603a
+  $fApplicativesState ::
+    Category.Functors (Category.State s) =>
+    Category.Applicatives (Category.State s)
+  DFunId[1]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ s
+                      $dFunctors :: Category.Functors (Category.State s).
+                  @ (Category.State s)
+                  $dFunctors
+                  (Category.$fApplicativesState_$cunit @ s $dFunctors)
+                  (Category.$fApplicativesState_$cdeploy @ s $dFunctors) -}
+4f5c5dca4a8ab1c4a739d456784df3e7
+  $fApplicativesState1 ::
+    Category.Functors (Category.State s) =>
+    forall a b.
+    Category.State s (a -> b) -> Category.State s a -> s -> (b, s)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,1*C1(U(U,U))><L,1*C1(U(U,U))><L,U>m,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ s
+                   $dFunctors :: Category.Functors (Category.State s)
+                   @ a
+                   @ b
+                   mf :: Category.State s (a -> b)
+                   ma :: Category.State s a
+                   s1 :: s ->
+                 let {
+                   ds :: (a -> b, s)
+                   = mf `cast` (Category.NTCo:State[0] <s>_R <a -> b>_R) s1
+                 } in
+                 let {
+                   ds1 :: (a, s)
+                   = ma `cast` (Category.NTCo:State[0] <s>_R <a>_R)
+                       (case ds of wild { (,) f sf -> sf })
+                 } in
+                 (case ds of wild { (,) f sf ->
+                  f (case ds1 of wild1 { (,) a1 sfa -> a1 }) },
+                  case ds1 of wild { (,) a1 sfa -> sfa })) -}
+1a2e1c9168efe7bd5d2763ab1c0fec31
+  $fApplicativesState2 ::
+    Category.Functors (Category.State s) => forall a. a -> s -> (a, s)
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><L,U>m,
+     Unfolding: InlineRule (3, True, True)
+                (\ @ s
+                   $dFunctors :: Category.Functors (Category.State s)
+                   @ a
+                   a1 :: a
+                   s1 :: s ->
+                 (a1, s1)) -}
+cecf1dda4305009c4d5b5599f1cda652
+  $fApplicativesState_$cdeploy ::
+    Category.Functors (Category.State s) =>
+    forall a b.
+    Category.State s (a -> b)
+    -> Category.State s a -> Category.State s b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,1*C1(U(U,U))><L,1*C1(U(U,U))><L,U>m,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fApplicativesState1
+                  `cast`
+                (forall s.
+                 <Category.Functors (Category.State s)>_R
+                 ->_R forall a b.
+                      <Category.State s (a -> b)>_R
+                      ->_R <Category.State s a>_R
+                      ->_R Sym (Category.NTCo:State[0] <s>_R <b>_R)) -}
+ac68702419acc8515fb0edab5517ec30
+  $fApplicativesState_$cunit ::
+    Category.Functors (Category.State s) =>
+    forall a. a -> Category.State s a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><L,U>m,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fApplicativesState2
+                  `cast`
+                (forall s.
+                 <Category.Functors (Category.State s)>_R
+                 ->_R forall a.
+                      <a>_R ->_R Sym (Category.NTCo:State[0] <s>_R <a>_R)) -}
+e6643a4f912e2a59e2f334981f5b603a
+  $fApplicativesWriter ::
+    (Category.Functors (Category.Writer w), Category.Monoids w) =>
+    Category.Applicatives (Category.Writer w)
+  DFunId[1]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U(C(C1(U)),U)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ w
+                      $dFunctors :: Category.Functors (Category.Writer w)
+                      $dMonoids :: Category.Monoids w.
+                  @ (Category.Writer w)
+                  $dFunctors
+                  (Category.$fApplicativesWriter_$cunit @ w $dFunctors $dMonoids)
+                  (Category.$fApplicativesWriter_$cdeploy
+                     @ w
+                     $dFunctors
+                     $dMonoids) -}
+f2f5154b6b43bf5e09df47c8c6b95398
+  $fApplicativesWriter1 ::
+    (Category.Functors (Category.Writer w), Category.Monoids w) =>
+    forall a. a -> (a, w)
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,1*U(A,1*U)><L,U>m,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ w
+                   $dFunctors :: Category.Functors (Category.Writer w)
+                   $dMonoids :: Category.Monoids w
+                   @ a
+                   a1 :: a ->
+                 (a1, Category.empty @ w $dMonoids)) -}
+cfb80beaf96d490f7a616354eca0823e
+  $fApplicativesWriter_$cdeploy ::
+    (Category.Functors (Category.Writer w), Category.Monoids w) =>
+    forall a b.
+    Category.Writer w (a -> b)
+    -> Category.Writer w a -> Category.Writer w b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,1*U(1*C1(C1(U)),A)><S,1*U(1*C1(U),U)><S,1*U(U,U)>m,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ w
+                   $dFunctors :: Category.Functors (Category.Writer w)
+                   $dMonoids :: Category.Monoids w
+                   @ a
+                   @ b
+                   eta :: Category.Writer w (a -> b)
+                   eta1 :: Category.Writer w a ->
+                 case eta
+                        `cast`
+                      (Category.NTCo:Writer[0] <w>_R <a -> b>_R) of wild { (,) f w1 ->
+                 case eta1
+                        `cast`
+                      (Category.NTCo:Writer[0] <w>_R <a>_R) of wild1 { (,) x w' ->
+                 (f x,
+                  (Category.$p1Monoids @ w $dMonoids)
+                    `cast`
+                  (Category.NTCo:Semigroups[0] <w>_N)
+                    w1
+                    w')
+                   `cast`
+                 (Sym (Category.NTCo:Writer[0] <w>_R <b>_R)) } }) -}
+d2bc8a7bc7824d8fd9c24470e504a53e
+  $fApplicativesWriter_$cunit ::
+    (Category.Functors (Category.Writer w), Category.Monoids w) =>
+    forall a. a -> Category.Writer w a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,1*U(A,1*U)><L,U>m,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fApplicativesWriter1
+                  `cast`
+                (forall w.
+                 <Category.Functors (Category.Writer w)>_R
+                 ->_R <Category.Monoids w>_R
+                 ->_R forall a.
+                      <a>_R ->_R Sym (Category.NTCo:Writer[0] <w>_R <a>_R)) -}
+e6643a4f912e2a59e2f334981f5b603a
+  $fApplicativesZipList :: Category.Applicatives Category.ZipList
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Category.ZipList
+                  Category.$fApplicativesZipList_$clift
+                    `cast`
+                  (Sym (Category.NTCo:Functors[0] <Category.ZipList>_N))
+                  Category.$fApplicativesZipList_$cunit
+                  Category.$fApplicativesZipList_$cdeploy -}
+b223e2acf9a68c00f53e5d29d293ca8a
+  $fApplicativesZipList1 ::
+    Category.ZipList (a -> b) -> Category.ZipList a -> [b]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   @ b
+                   ds :: Category.ZipList (a -> b)
+                   ds1 :: Category.ZipList a ->
+                 GHC.Base.build
+                   @ b
+                   (\ @ b1 c1 :: b -> b1 -> b1[OneShot] n :: b1[OneShot] ->
+                    GHC.List.foldr2
+                      @ (a -> b)
+                      @ a
+                      @ b1
+                      (GHC.List.zipWithFB
+                         @ b
+                         @ b1
+                         @ b1
+                         @ (a -> b)
+                         @ a
+                         c1
+                         (GHC.Base.$ @ a @ b))
+                      n
+                      ds `cast` (Category.NTCo:ZipList[0] <a -> b>_N)
+                      ds1 `cast` (Category.NTCo:ZipList[0] <a>_N))) -}
+b0e892497e13ec28354c14a8322e2a0d
+  $fApplicativesZipList_$cdeploy ::
+    Category.ZipList (a -> b)
+    -> Category.ZipList a -> Category.ZipList b
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fApplicativesZipList1
+                  `cast`
+                (forall a b.
+                 <Category.ZipList (a -> b)>_R
+                 ->_R <Category.ZipList a>_R
+                 ->_R Sym (Category.NTCo:ZipList[0]) <b>_N) -}
+2afcd8d873c0f80a80d16bc543a7b75f
+  $fApplicativesZipList_$clift ::
+    (a -> b) -> Category.ZipList a -> Category.ZipList b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                GHC.Base.map
+                  `cast`
+                (forall a b.
+                 <a -> b>_R
+                 ->_R Sym (Category.NTCo:ZipList[0]) <a>_N
+                 ->_R Sym (Category.NTCo:ZipList[0]) <b>_N) -}
+3b37601d46c065324a229737a582777c
+  $fApplicativesZipList_$cunit :: a -> Category.ZipList a
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                GHC.List.repeat
+                  `cast`
+                (forall a. <a>_R ->_R Sym (Category.NTCo:ZipList[0]) <a>_N) -}
+e6643a4f912e2a59e2f334981f5b603a
+  $fApplicatives[] :: Category.Applicatives []
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ []
+                  GHC.Base.map `cast` (Sym (Category.NTCo:Functors[0] <[]>_N))
+                  Category.$fApplicatives[]_$cunit
+                  Category.$fApplicatives[]_$cdeploy -}
+44b73d3d6ec1cb65020eb86b06b93a2f
+  $fApplicatives[]_$cdeploy :: [a -> b] -> [a] -> [b]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ @ a @ b fs :: [a -> b] xs :: [a] ->
+                 letrec {
+                   go :: [a -> b] -> [b] {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [a -> b] ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ b
+                       : y ys
+                       -> let {
+                            z :: [b] = go ys
+                          } in
+                          letrec {
+                            go1 :: [a] -> [b] {- Arity: 1, Strictness: <S,1*U> -}
+                            = \ ds1 :: [a] ->
+                              case ds1 of wild1 {
+                                [] -> z : y1 ys1 -> GHC.Types.: @ b (y y1) (go1 ys1) }
+                          } in
+                          go1 xs }
+                 } in
+                 go fs) -}
+a4b5ce2e3b40bece0b13598e4e796e24
+  $fApplicatives[]_$cunit :: a -> [a]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m2,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a x :: a -> GHC.Types.: @ a x (GHC.Types.[] @ a)) -}
+341ca7af7fe57e23b7f7ef1c8a6f42d0
+  $fEqOption ::
+    GHC.Classes.Eq a => GHC.Classes.Eq (Category.Option a)
+  DFunId[0]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a $dEq :: GHC.Classes.Eq a.
+                  @ (Category.Option a)
+                  (Category.$fEqOption_$c== @ a $dEq)
+                  (Category.$fEqOption_$c/= @ a $dEq) -}
+341ca7af7fe57e23b7f7ef1c8a6f42d0
+  $fEqOption_$c/= ::
+    GHC.Classes.Eq a =>
+    Category.Option a -> Category.Option a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C1(U)),A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ a
+                   $dEq :: GHC.Classes.Eq a
+                   a1 :: Category.Option a
+                   b :: Category.Option a ->
+                 case a1 of wild {
+                   Category.None
+                   -> case b of wild1 {
+                        Category.None -> GHC.Types.False
+                        Category.Some ipv -> GHC.Types.True }
+                   Category.Some a2
+                   -> case b of wild1 {
+                        Category.None -> GHC.Types.True
+                        Category.Some b1
+                        -> case GHC.Classes.== @ a $dEq a2 b1 of wild2 {
+                             GHC.Types.False -> GHC.Types.True
+                             GHC.Types.True -> GHC.Types.False } } }) -}
+341ca7af7fe57e23b7f7ef1c8a6f42d0
+  $fEqOption_$c== ::
+    GHC.Classes.Eq a =>
+    Category.Option a -> Category.Option a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C1(U)),A)><S,1*U><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   $dEq :: GHC.Classes.Eq a
+                   ds :: Category.Option a
+                   ds1 :: Category.Option a ->
+                 case ds of wild {
+                   Category.None
+                   -> case ds1 of wild1 {
+                        Category.None -> GHC.Types.True
+                        Category.Some ipv -> GHC.Types.False }
+                   Category.Some a1
+                   -> case ds1 of wild1 {
+                        Category.None -> GHC.Types.False
+                        Category.Some b1 -> GHC.Classes.== @ a $dEq a1 b1 } }) -}
+04df1bd0a77f8b80be580709438c1ea1
+  $fEqWriter ::
+    (GHC.Classes.Eq w, GHC.Classes.Eq a) =>
+    GHC.Classes.Eq (Category.Writer w a)
+  DFunId[0]
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><L,U(C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ w
+                      @ a
+                      $dEq :: GHC.Classes.Eq w
+                      $dEq1 :: GHC.Classes.Eq a.
+                  @ (Category.Writer w a)
+                  (Category.$fEqWriter_$c== @ w @ a $dEq $dEq1)
+                  (Category.$fEqWriter_$c/= @ w @ a $dEq $dEq1) -}
+54f812bf8030a40d0ba633d94209021c
+  $fEqWriter1 ::
+    (GHC.Classes.Eq w, GHC.Classes.Eq a) =>
+    (a, w) -> (a, w) -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><L,U(C(C1(U)),A)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ w
+                   @ a
+                   $dEq :: GHC.Classes.Eq w
+                   $dEq1 :: GHC.Classes.Eq a
+                   eta :: (a, w)
+                   eta1 :: (a, w) ->
+                 GHC.Classes.$fEq(,)_$c/= @ a @ w $dEq1 $dEq eta eta1) -}
+a2efc97fc3668f520af021aa45af8c0e
+  $fEqWriter2 ::
+    (GHC.Classes.Eq w, GHC.Classes.Eq a) =>
+    (a, w) -> (a, w) -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><L,U(C(C1(U)),A)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ w
+                   @ a
+                   $dEq :: GHC.Classes.Eq w
+                   $dEq1 :: GHC.Classes.Eq a
+                   eta :: (a, w)
+                   eta1 :: (a, w) ->
+                 GHC.Classes.$fEq(,)_$c== @ a @ w $dEq1 $dEq eta eta1) -}
+04df1bd0a77f8b80be580709438c1ea1
+  $fEqWriter_$c/= ::
+    (GHC.Classes.Eq w, GHC.Classes.Eq a) =>
+    Category.Writer w a -> Category.Writer w a -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><L,U(C(C1(U)),A)>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fEqWriter1
+                  `cast`
+                (forall w a.
+                 <GHC.Classes.Eq w>_R
+                 ->_R <GHC.Classes.Eq a>_R
+                 ->_R Sym (Category.NTCo:Writer[0] <w>_R <a>_R)
+                 ->_R Sym (Category.NTCo:Writer[0] <w>_R <a>_R)
+                 ->_R <GHC.Types.Bool>_R) -}
+04df1bd0a77f8b80be580709438c1ea1
+  $fEqWriter_$c== ::
+    (GHC.Classes.Eq w, GHC.Classes.Eq a) =>
+    Category.Writer w a -> Category.Writer w a -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><L,U(C(C1(U)),A)>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fEqWriter2
+                  `cast`
+                (forall w a.
+                 <GHC.Classes.Eq w>_R
+                 ->_R <GHC.Classes.Eq a>_R
+                 ->_R Sym (Category.NTCo:Writer[0] <w>_R <a>_R)
+                 ->_R Sym (Category.NTCo:Writer[0] <w>_R <a>_R)
+                 ->_R <GHC.Types.Bool>_R) -}
+0b5731ac88f8e12ec8a36cdbf52c8959
+  $fEqZipList ::
+    GHC.Classes.Eq a => GHC.Classes.Eq (Category.ZipList a)
+  DFunId[0]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a $dEq :: GHC.Classes.Eq a.
+                  @ (Category.ZipList a)
+                  (Category.$fEqZipList_$c== @ a $dEq)
+                  (Category.$fEqZipList_$c/= @ a $dEq) -}
+0b5731ac88f8e12ec8a36cdbf52c8959
+  $fEqZipList_$c/= ::
+    GHC.Classes.Eq a =>
+    Category.ZipList a -> Category.ZipList a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><S,1*U><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                GHC.Classes.$fEq[]_$c/=
+                  `cast`
+                (forall a.
+                 <GHC.Classes.Eq a>_R
+                 ->_R Sym (Category.NTCo:ZipList[0]) <a>_N
+                 ->_R Sym (Category.NTCo:ZipList[0]) <a>_N
+                 ->_R <GHC.Types.Bool>_R) -}
+0b5731ac88f8e12ec8a36cdbf52c8959
+  $fEqZipList_$c== ::
+    GHC.Classes.Eq a =>
+    Category.ZipList a -> Category.ZipList a -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><S,1*U><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                GHC.Classes.$fEq[]_$c==
+                  `cast`
+                (forall a.
+                 <GHC.Classes.Eq a>_R
+                 ->_R Sym (Category.NTCo:ZipList[0]) <a>_N
+                 ->_R Sym (Category.NTCo:ZipList[0]) <a>_N
+                 ->_R <GHC.Types.Bool>_R) -}
+3e6d3db5298b241671bd82cc027dab3b
+  $fFunctorsCont :: Category.Functors (Category.Cont r)
+  DFunId[0]
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,C(U)><C(S),1*C1(U)><L,C(U)>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Category.$fFunctorsCont_$clift
+                  `cast`
+                (forall r. Sym (Category.NTCo:Functors[0] <Category.Cont r>_N)) -}
+4620c996e90cabdb96ae36d536f88519
+  $fFunctorsCont1 :: (a -> b) -> Category.Cont r a -> (b -> r) -> r
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,C(U)><C(S),1*C1(U)><L,C(U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ r @ a @ b f :: a -> b m :: Category.Cont r a x :: b -> r ->
+                 m `cast` (Category.NTCo:Cont[0] <r>_R <a>_R)
+                   (GHC.Base.. @ b @ r @ a x f)) -}
+4276855721058ca30838b1cf7e24de6e
+  $fFunctorsCont_$clift ::
+    (a -> b) -> Category.Cont r a -> Category.Cont r b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,C(U)><C(S),1*C1(U)><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fFunctorsCont1
+                  `cast`
+                (forall r a b.
+                 <a -> b>_R
+                 ->_R <Category.Cont r a>_R
+                 ->_R Sym (Category.NTCo:Cont[0] <r>_R <b>_R)) -}
+3e6d3db5298b241671bd82cc027dab3b
+  $fFunctorsOption :: Category.Functors Category.Option
+  DFunId[0]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Category.$fApplicativesOption_$clift
+                  `cast`
+                (Sym (Category.NTCo:Functors[0] <Category.Option>_N)) -}
+3e6d3db5298b241671bd82cc027dab3b
+  $fFunctorsReader :: Category.Functors (Category.Reader e)
+  DFunId[0]
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(S),1*C1(U)><L,1*C1(U)><L,U>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Category.$fFunctorsReader_$clift
+                  `cast`
+                (forall e.
+                 Sym (Category.NTCo:Functors[0] <Category.Reader e>_N)) -}
+f325776efe5c8e087de4191b18e3b882
+  $fFunctorsReader1 :: (a -> b) -> Category.Reader e a -> e -> b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(S),1*C1(U)><L,1*C1(U)><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ e @ a @ b f :: a -> b m :: Category.Reader e a x :: e ->
+                 f (m `cast` (Category.NTCo:Reader[0] <e>_N <a>_N) x)) -}
+ecba8c19a2fd7a57dbe574c6e196321f
+  $fFunctorsReader_$clift ::
+    (a -> b) -> Category.Reader e a -> Category.Reader e b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(S),1*C1(U)><L,1*C1(U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fFunctorsReader1
+                  `cast`
+                (forall e a b.
+                 <a -> b>_R
+                 ->_R <Category.Reader e a>_R
+                 ->_R Sym (Category.NTCo:Reader[0]) <e>_N <b>_N) -}
+3e6d3db5298b241671bd82cc027dab3b
+  $fFunctorsState :: Category.Functors (Category.State s)
+  DFunId[0]
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*C1(U)><L,1*C1(U(U,U))><L,U>m,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Category.$fFunctorsState_$clift
+                  `cast`
+                (forall s. Sym (Category.NTCo:Functors[0] <Category.State s>_N)) -}
+313ab348aa33e0d056cd07320f33ef8e
+  $fFunctorsState1 :: (a -> b) -> Category.State s a -> s -> (b, s)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*C1(U)><L,1*C1(U(U,U))><L,U>m,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ s @ a @ b f :: a -> b m :: Category.State s a s1 :: s ->
+                 let {
+                   ds :: (a, s) = m `cast` (Category.NTCo:State[0] <s>_R <a>_R) s1
+                 } in
+                 (f (case ds of wild { (,) a1 s' -> a1 }),
+                  case ds of wild { (,) a1 s' -> s' })) -}
+aea128a92da17c69af3d03cfafabda13
+  $fFunctorsState_$clift ::
+    (a -> b) -> Category.State s a -> Category.State s b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*C1(U)><L,1*C1(U(U,U))><L,U>m,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fFunctorsState1
+                  `cast`
+                (forall s a b.
+                 <a -> b>_R
+                 ->_R <Category.State s a>_R
+                 ->_R Sym (Category.NTCo:State[0] <s>_R <b>_R)) -}
+3e6d3db5298b241671bd82cc027dab3b
+  $fFunctorsWriter :: Category.Functors (Category.Writer w)
+  DFunId[0]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U(U,U)>m,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Category.$fFunctorsWriter_$clift
+                  `cast`
+                (forall w.
+                 Sym (Category.NTCo:Functors[0] <Category.Writer w>_N)) -}
+dd6ff68917e20ee51011c2b90d8687bf
+  $fFunctorsWriter_$clift ::
+    (a -> b) -> Category.Writer w a -> Category.Writer w b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U(U,U)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ w @ a @ b f :: a -> b ds :: Category.Writer w a ->
+                 case ds
+                        `cast`
+                      (Category.NTCo:Writer[0] <w>_R <a>_R) of wild { (,) a1 w1 ->
+                 (f a1, w1) `cast` (Sym (Category.NTCo:Writer[0] <w>_R <b>_R)) }) -}
+3e6d3db5298b241671bd82cc027dab3b
+  $fFunctorsZipList :: Category.Functors Category.ZipList
+  DFunId[0]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Category.$fApplicativesZipList_$clift
+                  `cast`
+                (Sym (Category.NTCo:Functors[0] <Category.ZipList>_N)) -}
+3e6d3db5298b241671bd82cc027dab3b
+  $fFunctors[] :: Category.Functors []
+  DFunId[0]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                GHC.Base.map `cast` (Sym (Category.NTCo:Functors[0] <[]>_N)) -}
+d5f2d241de2786a1f59cce96af9d39ae
+  $fMonadsCont ::
+    Category.Applicatives (Category.Cont r) =>
+    Category.Monads (Category.Cont r)
+  DFunId[1]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ r
+                      $dApplicatives :: Category.Applicatives (Category.Cont r).
+                  @ (Category.Cont r)
+                  $dApplicatives
+                  (Category.$fMonadsCont_$cjoin @ r $dApplicatives)
+                  (Category.$fMonadsCont_$cbind @ r $dApplicatives) -}
+4f6ec6db184927b52293e4a67ff73d3d
+  $fMonadsCont1 ::
+    Category.Applicatives (Category.Cont r) =>
+    forall a b.
+    Category.Cont r a -> (a -> Category.Cont r b) -> (b -> r) -> r
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><C(S),1*C1(U)><L,C(C1(U))><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ r
+                   $dApplicatives :: Category.Applicatives (Category.Cont r)
+                   @ a
+                   @ b
+                   m :: Category.Cont r a
+                   k :: a -> Category.Cont r b
+                   x :: b -> r ->
+                 m `cast` (Category.NTCo:Cont[0] <r>_R <a>_R)
+                   (\ a1 :: a ->
+                    (k a1) `cast` (Category.NTCo:Cont[0] <r>_R <b>_R) x)) -}
+5f5fd84bbbfbf9872e7cf9f68cd14b57
+  $fMonadsCont2 ::
+    Category.Applicatives (Category.Cont r) =>
+    forall a. Category.Cont r (Category.Cont r a) -> (a -> r) -> r
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ r
+                   $dApplicatives :: Category.Applicatives (Category.Cont r)
+                   @ a
+                   m :: Category.Cont r (Category.Cont r a)
+                   x :: a -> r ->
+                 m `cast` (Category.NTCo:Cont[0] <r>_R <Category.Cont r a>_R)
+                   (\ a1 :: Category.Cont r a ->
+                    a1 `cast` (Category.NTCo:Cont[0] <r>_R <a>_R) x)) -}
+8f2cc4a1870e6ed6377fade8303b9831
+  $fMonadsCont_$cbind ::
+    Category.Applicatives (Category.Cont r) =>
+    forall a b.
+    Category.Cont r a -> (a -> Category.Cont r b) -> Category.Cont r b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><C(S),1*C1(U)><L,C(C1(U))><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fMonadsCont1
+                  `cast`
+                (forall r.
+                 <Category.Applicatives (Category.Cont r)>_R
+                 ->_R forall a b.
+                      <Category.Cont r a>_R
+                      ->_R <a -> Category.Cont r b>_R
+                      ->_R Sym (Category.NTCo:Cont[0] <r>_R <b>_R)) -}
+61939bdae43f4910a2ec9d3cf81d0762
+  $fMonadsCont_$cjoin ::
+    Category.Applicatives (Category.Cont r) =>
+    forall a. Category.Cont r (Category.Cont r a) -> Category.Cont r a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fMonadsCont2
+                  `cast`
+                (forall r.
+                 <Category.Applicatives (Category.Cont r)>_R
+                 ->_R forall a.
+                      <Category.Cont r (Category.Cont r a)>_R
+                      ->_R Sym (Category.NTCo:Cont[0] <r>_R <a>_R)) -}
+d5f2d241de2786a1f59cce96af9d39ae
+  $fMonadsOption :: Category.Monads Category.Option
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Category.Option
+                  Category.$fApplicativesOption
+                  Category.$fMonadsOption_$cjoin
+                  Category.$fMonadsOption_$cbind -}
+6e95acfaaa8b9f670311dfc27412b5f0
+  $fMonadsOption_$cbind ::
+    Category.Option a -> (a -> Category.Option b) -> Category.Option b
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*C1(U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b ds :: Category.Option a ds1 :: a -> Category.Option b ->
+                 case ds of wild {
+                   Category.None -> Category.None @ b Category.Some a1 -> ds1 a1 }) -}
+436e93e96c4361e5a2c8885a285093f9
+  $fMonadsOption_$cjoin ::
+    Category.Option (Category.Option a) -> Category.Option a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a ds :: Category.Option (Category.Option a) ->
+                 case ds of wild {
+                   Category.None -> Category.None @ a Category.Some a1 -> a1 }) -}
+d5f2d241de2786a1f59cce96af9d39ae
+  $fMonadsReader ::
+    Category.Applicatives (Category.Reader e) =>
+    Category.Monads (Category.Reader e)
+  DFunId[1]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ e
+                      $dApplicatives :: Category.Applicatives (Category.Reader e).
+                  @ (Category.Reader e)
+                  $dApplicatives
+                  (Category.$fMonadsReader_$cjoin @ e $dApplicatives)
+                  (Category.$fMonadsReader_$cbind @ e $dApplicatives) -}
+332c44a6766f44a596a833ec505df1f2
+  $fMonadsReader1 ::
+    Category.Applicatives (Category.Reader e) =>
+    forall a b.
+    Category.Reader e a -> (a -> Category.Reader e b) -> e -> b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,1*C1(U)><C(C(S)),1*C1(C1(U))><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ e
+                   $dApplicatives :: Category.Applicatives (Category.Reader e)
+                   @ a
+                   @ b
+                   m :: Category.Reader e a
+                   k :: a -> Category.Reader e b
+                   e1 :: e ->
+                 (k (m `cast` (Category.NTCo:Reader[0] <e>_N <a>_N) e1))
+                   `cast`
+                 (Category.NTCo:Reader[0] <e>_N <b>_N)
+                   e1) -}
+d0854da15d50e603a7d7a63645c34b8c
+  $fMonadsReader2 ::
+    Category.Applicatives (Category.Reader e) =>
+    forall a. Category.Reader e (Category.Reader e a) -> e -> a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,A><C(C(S)),1*C1(C1(U))><L,U>,
+     Unfolding: InlineRule (3, True, True)
+                (\ @ e
+                   $dApplicatives :: Category.Applicatives (Category.Reader e)
+                   @ a
+                   m :: Category.Reader e (Category.Reader e a)
+                   e1 :: e ->
+                 (m `cast` (Category.NTCo:Reader[0] <e>_N <Category.Reader e a>_N)
+                    e1)
+                   `cast`
+                 (Category.NTCo:Reader[0] <e>_N <a>_N)
+                   e1) -}
+2302002b6f4366b95b9c20c26f419585
+  $fMonadsReader_$cbind ::
+    Category.Applicatives (Category.Reader e) =>
+    forall a b.
+    Category.Reader e a
+    -> (a -> Category.Reader e b) -> Category.Reader e b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,1*C1(U)><C(C(S)),1*C1(C1(U))><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fMonadsReader1
+                  `cast`
+                (forall e.
+                 <Category.Applicatives (Category.Reader e)>_R
+                 ->_R forall a b.
+                      <Category.Reader e a>_R
+                      ->_R <a -> Category.Reader e b>_R
+                      ->_R Sym (Category.NTCo:Reader[0]) <e>_N <b>_N) -}
+bd942866138402c4013d838474c31dcf
+  $fMonadsReader_$cjoin ::
+    Category.Applicatives (Category.Reader e) =>
+    forall a.
+    Category.Reader e (Category.Reader e a) -> Category.Reader e a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,A><C(C(S)),1*C1(C1(U))><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fMonadsReader2
+                  `cast`
+                (forall e.
+                 <Category.Applicatives (Category.Reader e)>_R
+                 ->_R forall a.
+                      <Category.Reader e (Category.Reader e a)>_R
+                      ->_R Sym (Category.NTCo:Reader[0]) <e>_N <a>_N) -}
+d5f2d241de2786a1f59cce96af9d39ae
+  $fMonadsState ::
+    Category.Applicatives (Category.State s) =>
+    Category.Monads (Category.State s)
+  DFunId[1]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ s
+                      $dApplicatives :: Category.Applicatives (Category.State s).
+                  @ (Category.State s)
+                  $dApplicatives
+                  (Category.$fMonadsState_$cjoin @ s $dApplicatives)
+                  (Category.$fMonadsState_$cbind @ s $dApplicatives) -}
+df3e86eabe8bccbaa332c84aab6c551a
+  $fMonadsState1 ::
+    Category.Applicatives (Category.State s) =>
+    forall a b.
+    Category.State s a -> (a -> Category.State s b) -> s -> (b, s)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,1*C1(U(U,U))><C(C(S)),1*C1(C1(U(U,U)))><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ s
+                   $dApplicatives :: Category.Applicatives (Category.State s)
+                   @ a
+                   @ b
+                   m :: Category.State s a
+                   k :: a -> Category.State s b
+                   s1 :: s ->
+                 let {
+                   ds :: (a, s) = m `cast` (Category.NTCo:State[0] <s>_R <a>_R) s1
+                 } in
+                 (k (case ds of wild { (,) a1 s' -> a1 }))
+                   `cast`
+                 (Category.NTCo:State[0] <s>_R <b>_R)
+                   (case ds of wild { (,) a1 s' -> s' })) -}
+127ec07eabd97d53dec2e34b713fd36c
+  $fMonadsState2 ::
+    Category.Applicatives (Category.State s) =>
+    forall a. Category.State s (Category.State s a) -> s -> (a, s)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,A><C(S(C(S)L)),1*C1(U(1*C1(U(U,U)),U))><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ s
+                   $dApplicatives :: Category.Applicatives (Category.State s)
+                   @ a
+                   m :: Category.State s (Category.State s a)
+                   s1 :: s ->
+                 case m `cast` (Category.NTCo:State[0] <s>_R <Category.State s a>_R)
+                        s1 of wild { (,) m' s' ->
+                 m' `cast` (Category.NTCo:State[0] <s>_R <a>_R) s' }) -}
+411da8adefce3c4caecb6396907f0c68
+  $fMonadsState_$cbind ::
+    Category.Applicatives (Category.State s) =>
+    forall a b.
+    Category.State s a
+    -> (a -> Category.State s b) -> Category.State s b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,1*C1(U(U,U))><C(C(S)),1*C1(C1(U(U,U)))><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fMonadsState1
+                  `cast`
+                (forall s.
+                 <Category.Applicatives (Category.State s)>_R
+                 ->_R forall a b.
+                      <Category.State s a>_R
+                      ->_R <a -> Category.State s b>_R
+                      ->_R Sym (Category.NTCo:State[0] <s>_R <b>_R)) -}
+a921b07c9a4b8cf0e7e1fe0943e58f76
+  $fMonadsState_$cjoin ::
+    Category.Applicatives (Category.State s) =>
+    forall a.
+    Category.State s (Category.State s a) -> Category.State s a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,A><C(S(C(S)L)),1*C1(U(1*C1(U(U,U)),U))><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fMonadsState2
+                  `cast`
+                (forall s.
+                 <Category.Applicatives (Category.State s)>_R
+                 ->_R forall a.
+                      <Category.State s (Category.State s a)>_R
+                      ->_R Sym (Category.NTCo:State[0] <s>_R <a>_R)) -}
+d5f2d241de2786a1f59cce96af9d39ae
+  $fMonadsWriter ::
+    (Category.Applicatives (Category.Writer w), Category.Monoids w) =>
+    Category.Monads (Category.Writer w)
+  DFunId[1]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U(C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ w
+                      $dApplicatives :: Category.Applicatives (Category.Writer w)
+                      $dMonoids :: Category.Monoids w.
+                  @ (Category.Writer w)
+                  $dApplicatives
+                  (Category.$fMonadsWriter_$cjoin @ w $dApplicatives $dMonoids)
+                  (Category.$fMonadsWriter_$cbind @ w $dApplicatives $dMonoids) -}
+dd78f60a8c5a743dc51a0314cddd8c97
+  $fMonadsWriter_$cbind ::
+    (Category.Applicatives (Category.Writer w), Category.Monoids w) =>
+    forall a b.
+    Category.Writer w a
+    -> (a -> Category.Writer w b) -> Category.Writer w b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,1*U(1*C1(C1(U)),A)><S,1*U(U,U)><L,1*C1(U(U,U))>m,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ w
+                   $dApplicatives :: Category.Applicatives (Category.Writer w)
+                   $dMonoids :: Category.Monoids w
+                   @ a
+                   @ b
+                   eta :: Category.Writer w a
+                   eta1 :: a -> Category.Writer w b ->
+                 case eta
+                        `cast`
+                      (Category.NTCo:Writer[0] <w>_R <a>_R) of wild { (,) a1 w1 ->
+                 let {
+                   a2 :: Category.Writer w b = eta1 a1
+                 } in
+                 (case a2
+                         `cast`
+                       (Category.NTCo:Writer[0] <w>_R <b>_R) of ds { (,) a' w' ->
+                  a' },
+                  (Category.$p1Monoids @ w $dMonoids)
+                    `cast`
+                  (Category.NTCo:Semigroups[0] <w>_N)
+                    w1
+                    (case a2
+                            `cast`
+                          (Category.NTCo:Writer[0] <w>_R <b>_R) of ds { (,) a' w' ->
+                     w' }))
+                   `cast`
+                 (Sym (Category.NTCo:Writer[0] <w>_R <b>_R)) }) -}
+bdfe4e3cc52d0a6750735c50fbb3ea94
+  $fMonadsWriter_$cjoin ::
+    (Category.Applicatives (Category.Writer w), Category.Monoids w) =>
+    forall a.
+    Category.Writer w (Category.Writer w a) -> Category.Writer w a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,A><L,1*U(1*C1(C1(U)),A)><S(SL),1*U(1*U(U,U),U)>m,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ w
+                   $dApplicatives :: Category.Applicatives (Category.Writer w)
+                   $dMonoids :: Category.Monoids w
+                   @ a
+                   eta :: Category.Writer w (Category.Writer w a) ->
+                 case eta
+                        `cast`
+                      (Category.NTCo:Writer[0]
+                           <w>_R <Category.Writer w a>_R) of wild { (,) ds w' ->
+                 case ds
+                        `cast`
+                      (Category.NTCo:Writer[0] <w>_R <a>_R) of wild1 { (,) a1 w1 ->
+                 (a1,
+                  (Category.$p1Monoids @ w $dMonoids)
+                    `cast`
+                  (Category.NTCo:Semigroups[0] <w>_N)
+                    w'
+                    w1)
+                   `cast`
+                 (Sym (Category.NTCo:Writer[0] <w>_R <a>_R)) } }) -}
+d5f2d241de2786a1f59cce96af9d39ae
+  $fMonads[] :: Category.Monads []
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ []
+                  Category.$fApplicatives[]
+                  Category.$fMonads[]_$cjoin
+                  Category.$fMonads[]_$cbind -}
+fb2b7694acafc5fe51b1cccf646e369e
+  $fMonads[]_$cbind :: [a] -> (a -> [b]) -> [b]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,C(U)>,
+     Unfolding: (\ @ a @ b xs :: [a] k :: a -> [b] ->
+                 letrec {
+                   go :: [a] -> [b] {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [a] ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ b : y ys -> GHC.Base.++ @ b (k y) (go ys) }
+                 } in
+                 go xs) -}
+45cf7e39a90eeb030293de83e1f43479
+  $fMonads[]_$cjoin :: [[a]] -> [a]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fMonads[]_$sconcat -}
+787fc49071953e2a0f4a08b7b180932f
+  $fMonads[]_$sconcat :: [[a3]] -> [a3]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Inline: INLINE (sat-args=1),
+     Unfolding: InlineRule (1, False, False)
+                (\ @ a3 xs :: [[a3]] ->
+                 GHC.Base.build
+                   @ a3
+                   (\ @ b c :: a3 -> b -> b[OneShot] n :: b[OneShot] ->
+                    GHC.Base.foldr
+                      @ [a3]
+                      @ b
+                      (\ x :: [a3] y :: b[OneShot] -> GHC.Base.foldr @ a3 @ b c y x)
+                      n
+                      xs)) -}
+bbd21a1dcf90898b18e1038801230528
+  $fMonoidsOption ::
+    (Category.Semigroups (Category.Option a), Category.Semigroups a) =>
+    Category.Monoids (Category.Option a)
+  DFunId[1]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,A>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a
+                      $dSemigroups :: Category.Semigroups (Category.Option a)
+                      $dSemigroups1 :: Category.Semigroups a.
+                  @ (Category.Option a)
+                  $dSemigroups
+                  (Category.$fMonoidsOption_$cempty
+                     @ a
+                     $dSemigroups
+                     $dSemigroups1) -}
+5f2fa09d845936f8cdc48e1c7f28c88b
+  $fMonoidsOption_$cempty ::
+    (Category.Semigroups (Category.Option a), Category.Semigroups a) =>
+    Category.Option a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><L,A>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ a
+                   $dSemigroups :: Category.Semigroups (Category.Option a)
+                   $dSemigroups1 :: Category.Semigroups a ->
+                 Category.None @ a) -}
+bbd21a1dcf90898b18e1038801230528
+  $fMonoidsZipList ::
+    Category.Semigroups (Category.ZipList a) =>
+    Category.Monoids (Category.ZipList a)
+  DFunId[1]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a
+                      $dSemigroups :: Category.Semigroups (Category.ZipList a).
+                  @ (Category.ZipList a)
+                  $dSemigroups
+                  (Category.$fMonoidsZipList_$cempty @ a $dSemigroups) -}
+3059f8ae8bdc593c8a7e5b3e2abc426a
+  $fMonoidsZipList1 ::
+    Category.Semigroups (Category.ZipList a) => [a]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ a $dSemigroups :: Category.Semigroups (Category.ZipList a) ->
+                 GHC.Types.[] @ a) -}
+b299f189307add0b790663392f750c2f
+  $fMonoidsZipList_$cempty ::
+    Category.Semigroups (Category.ZipList a) => Category.ZipList a
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>,
+     Unfolding: InlineRule (0, True, True)
+                Category.$fMonoidsZipList1
+                  `cast`
+                (forall a.
+                 <Category.Semigroups (Category.ZipList a)>_R
+                 ->_R Sym (Category.NTCo:ZipList[0]) <a>_N) -}
+bbd21a1dcf90898b18e1038801230528
+  $fMonoids[] :: Category.Semigroups [a] => Category.Monoids [a]
+  DFunId[1]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a $dSemigroups :: Category.Semigroups [a].
+                  @ [a]
+                  $dSemigroups
+                  (Category.$fMonoids[]_$cempty @ a $dSemigroups) -}
+283baf6a8964764bc049a845b6c993ac
+  $fMonoids[]_$cempty :: Category.Semigroups [a] => [a]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ a $dSemigroups :: Category.Semigroups [a] ->
+                 GHC.Types.[] @ a) -}
+325959d4bca306214833f775e3788246
+  $fSemigroupsOption ::
+    Category.Semigroups a => Category.Semigroups (Category.Option a)
+  DFunId[0]
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*C1(C1(U))><S,1*U><S,1*U>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Category.$fSemigroupsOption_$cappend
+                  `cast`
+                (forall a.
+                 <Category.Semigroups a>_R
+                 ->_R Sym (Category.NTCo:Semigroups[0] <Category.Option a>_N)) -}
+325959d4bca306214833f775e3788246
+  $fSemigroupsOption_$cappend ::
+    Category.Semigroups a =>
+    Category.Option a -> Category.Option a -> Category.Option a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*C1(C1(U))><S,1*U><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   $dSemigroups :: Category.Semigroups a
+                   ds :: Category.Option a
+                   a1 :: Category.Option a ->
+                 case ds of wild {
+                   Category.None -> a1
+                   Category.Some ipv
+                   -> case a1 of wild1 {
+                        Category.None -> wild
+                        Category.Some ipv1
+                        -> Category.Some
+                             @ a
+                             ($dSemigroups `cast` (Category.NTCo:Semigroups[0] <a>_N)
+                                ipv
+                                ipv1) } }) -}
+325959d4bca306214833f775e3788246
+  $fSemigroupsZipList :: Category.Semigroups (Category.ZipList a)
+  DFunId[0]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Category.$fSemigroupsZipList_$cappend
+                  `cast`
+                (forall a.
+                 Sym (Category.NTCo:Semigroups[0] <Category.ZipList a>_N)) -}
+02b95e46ac17e4caba540cf384ab2f2a
+  $fSemigroupsZipList_$cappend ::
+    Category.ZipList a -> Category.ZipList a -> Category.ZipList a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                GHC.Base.++
+                  `cast`
+                (forall a.
+                 Sym (Category.NTCo:ZipList[0]) <a>_N
+                 ->_R Sym (Category.NTCo:ZipList[0]) <a>_N
+                 ->_R Sym (Category.NTCo:ZipList[0]) <a>_N) -}
+325959d4bca306214833f775e3788246
+  $fSemigroups[] :: Category.Semigroups [a]
+  DFunId[0]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                GHC.Base.++
+                  `cast`
+                (forall a. Sym (Category.NTCo:Semigroups[0] <[a]>_N)) -}
+341ca7af7fe57e23b7f7ef1c8a6f42d0
+  $fShowOption ::
+    GHC.Show.Show a => GHC.Show.Show (Category.Option a)
+  DFunId[0]
+  {- Arity: 1, Strictness: <L,U(C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a $dShow :: GHC.Show.Show a.
+                  @ (Category.Option a)
+                  (Category.$fShowOption_$cshowsPrec @ a $dShow)
+                  (Category.$fShowOption_$cshow @ a $dShow)
+                  (Category.$fShowOption_$cshowList @ a $dShow) -}
+69cb40affbafa4878bbbd3f78e940289
+  $fShowOption1 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0) -}
+4c1664529a72ffb2e44eb555fef453c6
+  $fShowOption2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Some "#) -}
+6127944f8463af8ada26b14114812662
+  $fShowOption3 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 11) -}
+cb61df88723b9d1edf89b63ab9fc72f7
+  $fShowOption4 :: GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (GHC.Base.++ @ GHC.Types.Char Category.$fShowOption5) -}
+01fecf28107d53c0616b7a17738b7f70
+  $fShowOption5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "None"#) -}
+341ca7af7fe57e23b7f7ef1c8a6f42d0
+  $fShowOption_$cshow ::
+    GHC.Show.Show a => Category.Option a -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U(1*C1(C1(C1(U))),A,A)><S,1*U>,
+     Unfolding: (\ @ a
+                   $dShow :: GHC.Show.Show a
+                   x :: Category.Option a ->
+                 case x of wild {
+                   Category.None -> Category.$fShowOption5
+                   Category.Some b1
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        Category.$fShowOption2
+                        (GHC.Show.showsPrec
+                           @ a
+                           $dShow
+                           Category.$fShowOption3
+                           b1
+                           (GHC.Types.[] @ GHC.Types.Char)) }) -}
+341ca7af7fe57e23b7f7ef1c8a6f42d0
+  $fShowOption_$cshowList ::
+    GHC.Show.Show a => [Category.Option a] -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U(C(C1(U)),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   $dShow :: GHC.Show.Show a
+                   eta :: [Category.Option a]
+                   eta1 :: GHC.Base.String ->
+                 GHC.Show.showList__
+                   @ (Category.Option a)
+                   (Category.$fShowOption_$cshowsPrec
+                      @ a
+                      $dShow
+                      Category.$fShowOption1)
+                   eta
+                   eta1) -}
+341ca7af7fe57e23b7f7ef1c8a6f42d0
+  $fShowOption_$cshowsPrec ::
+    GHC.Show.Show a =>
+    GHC.Types.Int -> Category.Option a -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,1*U(1*C1(C1(U)),A,A)><L,1*U(U)><S,1*U>,
+     Unfolding: (\ @ a
+                   $dShow :: GHC.Show.Show a
+                   ds :: GHC.Types.Int
+                   ds1 :: Category.Option a ->
+                 case ds1 of wild {
+                   Category.None -> Category.$fShowOption4
+                   Category.Some b1
+                   -> case ds of wild1 { GHC.Types.I# x ->
+                      let {
+                        g :: GHC.Base.String -> GHC.Base.String
+                        = GHC.Show.showsPrec @ a $dShow Category.$fShowOption3 b1
+                      } in
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.>=# x 11) of wild2 {
+                        GHC.Types.False
+                        -> \ x1 :: GHC.Base.String ->
+                           GHC.Base.++ @ GHC.Types.Char Category.$fShowOption2 (g x1)
+                        GHC.Types.True
+                        -> \ x1 :: GHC.Base.String ->
+                           GHC.Types.:
+                             @ GHC.Types.Char
+                             GHC.Show.shows9
+                             (GHC.Base.++
+                                @ GHC.Types.Char
+                                Category.$fShowOption2
+                                (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x1))) } } }) -}
+04df1bd0a77f8b80be580709438c1ea1
+  $fShowWriter ::
+    (GHC.Show.Show w, GHC.Show.Show a) =>
+    GHC.Show.Show (Category.Writer w a)
+  DFunId[0]
+  {- Arity: 2,
+     Strictness: <L,U(C(C1(U)),A,A)><L,U(C(C1(C1(U))),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ w
+                      @ a
+                      $dShow :: GHC.Show.Show w
+                      $dShow1 :: GHC.Show.Show a.
+                  @ (Category.Writer w a)
+                  (Category.$fShowWriter_$cshowsPrec @ w @ a $dShow $dShow1)
+                  (Category.$fShowWriter_$cshow @ w @ a $dShow $dShow1)
+                  (Category.$fShowWriter_$cshowList @ w @ a $dShow $dShow1) -}
+6af4e1715e6934223ed21ce9ecae95e7
+  $fShowWriter1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Writer "#) -}
+04df1bd0a77f8b80be580709438c1ea1
+  $fShowWriter_$cshow ::
+    (GHC.Show.Show w, GHC.Show.Show a) =>
+    Category.Writer w a -> GHC.Base.String
+  {- Arity: 3,
+     Strictness: <L,1*U(1*C1(C1(U)),A,A)><L,1*U(1*C1(C1(C1(U))),A,A)><L,1*U(U,U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ w
+                   @ a
+                   $dShow :: GHC.Show.Show w
+                   $dShow1 :: GHC.Show.Show a
+                   x :: Category.Writer w a ->
+                 Category.$fShowWriter_$cshowsPrec
+                   @ w
+                   @ a
+                   $dShow
+                   $dShow1
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+04df1bd0a77f8b80be580709438c1ea1
+  $fShowWriter_$cshowList ::
+    (GHC.Show.Show w, GHC.Show.Show a) =>
+    [Category.Writer w a] -> GHC.Show.ShowS
+  {- Arity: 4,
+     Strictness: <L,U(C(C1(U)),A,A)><L,U(C(C1(C1(U))),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ w
+                   @ a
+                   $dShow :: GHC.Show.Show w
+                   $dShow1 :: GHC.Show.Show a
+                   eta :: [Category.Writer w a]
+                   eta1 :: GHC.Base.String ->
+                 GHC.Show.showList__
+                   @ (Category.Writer w a)
+                   (Category.$fShowWriter_$cshowsPrec
+                      @ w
+                      @ a
+                      $dShow
+                      $dShow1
+                      Category.$fShowOption1)
+                   eta
+                   eta1) -}
+04df1bd0a77f8b80be580709438c1ea1
+  $fShowWriter_$cshowsPrec ::
+    (GHC.Show.Show w, GHC.Show.Show a) =>
+    GHC.Types.Int -> Category.Writer w a -> GHC.Show.ShowS
+  {- Arity: 5,
+     Strictness: <L,1*U(1*C1(C1(U)),A,A)><L,1*U(1*C1(C1(C1(U))),A,A)><S,1*U(U)><L,1*U(U,U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ w
+                   @ a
+                   w1 :: GHC.Show.Show w
+                   w2 :: GHC.Show.Show a
+                   w3 :: GHC.Types.Int
+                   w4 :: Category.Writer w a
+                   w5 :: GHC.Base.String ->
+                 case w3 of ww { GHC.Types.I# ww1 ->
+                 Category.$w$cshowsPrec @ w @ a w1 w2 ww1 w4 w5 }) -}
+0b5731ac88f8e12ec8a36cdbf52c8959
+  $fShowZipList ::
+    GHC.Show.Show a => GHC.Show.Show (Category.ZipList a)
+  DFunId[0]
+  {- Arity: 1, Strictness: <L,U(A,A,C(U))>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a $dShow :: GHC.Show.Show a.
+                  @ (Category.ZipList a)
+                  (Category.$fShowZipList_$cshowsPrec @ a $dShow)
+                  (Category.$fShowZipList_$cshow @ a $dShow)
+                  (Category.$fShowZipList_$cshowList @ a $dShow) -}
+cfa4e1b125a007e11bfd0faeb65cd3da
+  $fShowZipList1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "ZipList "#) -}
+0b5731ac88f8e12ec8a36cdbf52c8959
+  $fShowZipList_$cshow ::
+    GHC.Show.Show a => Category.ZipList a -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U(A,A,1*C1(C1(U)))><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a $dShow :: GHC.Show.Show a x :: Category.ZipList a ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                    GHC.Base.foldr @ GHC.Types.Char @ b c n Category.$fShowZipList1)
+                   (GHC.Show.showList
+                      @ a
+                      $dShow
+                      x `cast` (Category.NTCo:ZipList[0] <a>_N)
+                      (GHC.Types.[] @ GHC.Types.Char))) -}
+0b5731ac88f8e12ec8a36cdbf52c8959
+  $fShowZipList_$cshowList ::
+    GHC.Show.Show a => [Category.ZipList a] -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U(A,A,C(U))><S,1*U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   $dShow :: GHC.Show.Show a
+                   eta :: [Category.ZipList a]
+                   eta1 :: GHC.Base.String ->
+                 GHC.Show.showList__
+                   @ (Category.ZipList a)
+                   (Category.$fShowZipList_$cshowsPrec
+                      @ a
+                      $dShow
+                      Category.$fShowOption1)
+                   eta
+                   eta1) -}
+0b5731ac88f8e12ec8a36cdbf52c8959
+  $fShowZipList_$cshowsPrec ::
+    GHC.Show.Show a =>
+    GHC.Types.Int -> Category.ZipList a -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,1*U(A,A,1*C1(U))><S,1*U(U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   w :: GHC.Show.Show a
+                   w1 :: GHC.Types.Int
+                   w2 :: Category.ZipList a ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 Category.$w$cshowsPrec1 @ a w ww1 w2 }) -}
+04df1bd0a77f8b80be580709438c1ea1
+  $w$cshowsPrec ::
+    (GHC.Show.Show w, GHC.Show.Show a) =>
+    GHC.Prim.Int#
+    -> Category.Writer w a -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 5,
+     Strictness: <L,1*U(1*C1(C1(U)),A,A)><L,1*U(1*C1(C1(C1(U))),A,A)><L,U><L,1*U(U,U)><L,U>,
+     Inline: [0],
+     Unfolding: (\ @ w
+                   @ a
+                   w1 :: GHC.Show.Show w
+                   w2 :: GHC.Show.Show a
+                   ww :: GHC.Prim.Int#
+                   w3 :: Category.Writer w a
+                   w4 :: GHC.Base.String ->
+                 let {
+                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,U> -}
+                   = \ x :: GHC.Base.String[OneShot] ->
+                     GHC.Base.++
+                       @ GHC.Types.Char
+                       Category.$fShowWriter1
+                       (case w3
+                               `cast`
+                             (Category.NTCo:Writer[0] <w>_R <a>_R) of ww1 { (,) ww2 ww3 ->
+                        GHC.Types.:
+                          @ GHC.Types.Char
+                          GHC.Show.shows9
+                          (GHC.Show.showsPrec
+                             @ a
+                             w2
+                             GHC.Show.shows18
+                             ww2
+                             (GHC.Types.:
+                                @ GHC.Types.Char
+                                GHC.Show.showList__1
+                                (GHC.Show.$fShow(,)_$sgo
+                                   (GHC.Show.showsPrec @ w w1 GHC.Show.shows18 ww3)
+                                   (GHC.Types.[] @ GHC.Show.ShowS)
+                                   (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x)))) })
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False -> p w4
+                   GHC.Types.True
+                   -> GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 w4)) }) -}
+0b5731ac88f8e12ec8a36cdbf52c8959
+  $w$cshowsPrec1 ::
+    GHC.Show.Show a =>
+    GHC.Prim.Int# -> Category.ZipList a -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,1*U(A,A,1*C1(U))><L,U><L,U>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   w :: GHC.Show.Show a
+                   ww :: GHC.Prim.Int#
+                   w1 :: Category.ZipList a ->
+                 let {
+                   g :: GHC.Base.String -> GHC.Base.String
+                   = GHC.Show.showList
+                       @ a
+                       w
+                       w1 `cast` (Category.NTCo:ZipList[0] <a>_N)
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Base.++ @ GHC.Types.Char Category.$fShowZipList1 (g x)
+                   GHC.Types.True
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Category.$fShowZipList1
+                           (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x))) }) -}
+e6643a4f912e2a59e2f334981f5b603a
+  class Category.Functors f => Applicatives (f :: * -> *) where
+    unit :: a -> f a
+    deploy :: f (a -> b) -> f a -> f b
+bf929fd7c72ff370114fb33679d81b25
+  newtype Cont r a = Cont {runCont :: (a -> r) -> r}
+    Promotable
+3e6d3db5298b241671bd82cc027dab3b
+  class Functors (f :: * -> *) where
+    lift :: (a -> b) -> f a -> f b
+d5f2d241de2786a1f59cce96af9d39ae
+  class Category.Applicatives m => Monads (m :: * -> *) where
+    join :: m (m a) -> m a
+    bind :: m a -> (a -> m b) -> m b
+bbd21a1dcf90898b18e1038801230528
+  class Category.Semigroups m => Monoids m where
+    empty :: m
+341ca7af7fe57e23b7f7ef1c8a6f42d0
+  data Option a = None | Some a
+    Promotable
+a34a3c05e0c678245c66e071df361d20
+  newtype Reader e a = Reader {runReader :: e -> a}
+    Promotable
+325959d4bca306214833f775e3788246
+  class Semigroups m where
+    append :: m -> m -> m
+5106afaa679d364d09f6d1725e953f29
+  newtype State s a = State {runState :: s -> (a, s)}
+    Promotable
+04df1bd0a77f8b80be580709438c1ea1
+  newtype Writer w a = Writer (a, w)
+    Promotable
+0b5731ac88f8e12ec8a36cdbf52c8959
+  newtype ZipList a = ZipList [a]
+    Promotable
+be9aeb178125e24d708d3d066aa3077e
+  runCont :: Category.Cont r a -> (a -> r) -> r
+  RecSel Category.Cont
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.runCont1
+                  `cast`
+                (forall r a.
+                 <Category.Cont r a>_R ->_R Category.NTCo:Cont[0] <r>_R <a>_R) -}
+a2e3db1b8248fcd3ae7ce95f35afa98a
+  runCont1 :: Category.Cont r a -> Category.Cont r a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ r @ a ds :: Category.Cont r a -> ds) -}
+89508602b22292cc95739c7018189a68
+  runReader :: Category.Reader e a -> e -> a
+  RecSel Category.Reader
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.runReader1
+                  `cast`
+                (forall e a.
+                 <Category.Reader e a>_R
+                 ->_R Category.NTCo:Reader[0] <e>_N <a>_N) -}
+eb39fcb2b1753a1950d5b94a3973a56f
+  runReader1 :: Category.Reader e a -> Category.Reader e a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ e @ a ds :: Category.Reader e a -> ds) -}
+affd6536255d9a45f6fbd613bc35bbe1
+  runState :: Category.State s a -> s -> (a, s)
+  RecSel Category.State
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Category.runState1
+                  `cast`
+                (forall s a.
+                 <Category.State s a>_R ->_R Category.NTCo:State[0] <s>_R <a>_R) -}
+f8b0701033672fffae6edb0d3f55a31f
+  runState1 :: Category.State s a -> Category.State s a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ s @ a ds :: Category.State s a -> ds) -}
+instance Category.Applicatives [Category.Cont]
+  = Category.$fApplicativesCont
+instance Category.Applicatives [Category.Option]
+  = Category.$fApplicativesOption
+instance Category.Applicatives [Category.Reader]
+  = Category.$fApplicativesReader
+instance Category.Applicatives [Category.State]
+  = Category.$fApplicativesState
+instance Category.Applicatives [Category.Writer]
+  = Category.$fApplicativesWriter
+instance Category.Applicatives [Category.ZipList]
+  = Category.$fApplicativesZipList
+instance Category.Applicatives [[]] = Category.$fApplicatives[]
+instance GHC.Classes.Eq [Category.Option] = Category.$fEqOption
+instance GHC.Classes.Eq [Category.Writer] = Category.$fEqWriter
+instance GHC.Classes.Eq [Category.ZipList] = Category.$fEqZipList
+instance Category.Functors [Category.Cont]
+  = Category.$fFunctorsCont
+instance Category.Functors [Category.Option]
+  = Category.$fFunctorsOption
+instance Category.Functors [Category.Reader]
+  = Category.$fFunctorsReader
+instance Category.Functors [Category.State]
+  = Category.$fFunctorsState
+instance Category.Functors [Category.Writer]
+  = Category.$fFunctorsWriter
+instance Category.Functors [Category.ZipList]
+  = Category.$fFunctorsZipList
+instance Category.Functors [[]] = Category.$fFunctors[]
+instance Category.Monads [Category.Cont] = Category.$fMonadsCont
+instance Category.Monads [Category.Option]
+  = Category.$fMonadsOption
+instance Category.Monads [Category.Reader]
+  = Category.$fMonadsReader
+instance Category.Monads [Category.State] = Category.$fMonadsState
+instance Category.Monads [Category.Writer]
+  = Category.$fMonadsWriter
+instance Category.Monads [[]] = Category.$fMonads[]
+instance Category.Monoids [Category.Option]
+  = Category.$fMonoidsOption
+instance Category.Monoids [Category.ZipList]
+  = Category.$fMonoidsZipList
+instance Category.Monoids [[]] = Category.$fMonoids[]
+instance Category.Semigroups [Category.Option]
+  = Category.$fSemigroupsOption
+instance Category.Semigroups [Category.ZipList]
+  = Category.$fSemigroupsZipList
+instance Category.Semigroups [[]] = Category.$fSemigroups[]
+instance GHC.Show.Show [Category.Option] = Category.$fShowOption
+instance GHC.Show.Show [Category.Writer] = Category.$fShowWriter
+instance GHC.Show.Show [Category.ZipList] = Category.$fShowZipList
+"SPEC/Category concat @ [] _" [ALWAYS] forall @ a3
+                                              $dFoldable :: Data.Foldable.Foldable []
+  Data.Foldable.concat @ [] @ a3 $dFoldable
+  = Category.$fMonads[]_$sconcat @ a3
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
